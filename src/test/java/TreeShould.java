@@ -35,12 +35,13 @@ public class TreeShould {
 	public void store_any_amount_of_elements () {
 		assertThat(sut.contains(1), is(true));
 
-		for(int i=2;i<7;i++) {
+		final int upperBound = 7;
+		for(int i=2;i< upperBound;i++) {
 			sut.add(i);
 		}
 
 
-		for(int i=2;i<7;i++) {
+		for(int i=2;i< upperBound;i++) {
 			assertThat(sut.contains(i), is(true));
 		}
 	}
