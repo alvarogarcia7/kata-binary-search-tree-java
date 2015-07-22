@@ -1,3 +1,4 @@
+import bst.Tree;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
