@@ -30,4 +30,11 @@ public class TreeShould {
 
 		assertThat(sut.contains(2), is(true));
 	}
+
+	@Test
+	public void not_store_the_default_value_for_int_without_adding_it_first () {
+		assertThat(sut.contains(0), is(false));
+	}
+
+
 }
