@@ -32,6 +32,16 @@ public class TreeShould {
 	}
 
 	@Test
+	public void store_three_elements () {
+		sut.add(2);
+		sut.add(3);
+
+		assertThat(sut.contains(1), is(true));
+		assertThat(sut.contains(2), is(true));
+		assertThat(sut.contains(3), is(true));
+	}
+
+	@Test
 	public void not_store_the_default_value_for_int_without_adding_it_first () {
 		assertThat(sut.contains(0), is(false));
 	}
