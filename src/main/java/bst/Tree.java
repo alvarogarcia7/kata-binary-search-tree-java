@@ -13,9 +13,6 @@ public class Tree {
 	}
 
 	public boolean contains (final int value) {
-		if(this.value == value){
-			return true;
-		}
-		return false;
+		return this.value == value;
 	}
 }
