@@ -5,9 +5,11 @@ import java.util.Optional;
 public class Tree {
 	private final int value;
 	private Optional<Integer> other;
+	private Optional<Integer> other2;
 
 	private Tree (final int value) {
 		other = Optional.empty();
+		other2 = Optional.empty();
 		this.value = value;
 	}
 
@@ -16,10 +18,16 @@ public class Tree {
 	}
 
 	public boolean contains (final int value) {
-		return this.value == value|| other.isPresent() && other.get() ==value;
+		return this.value == value
+				|| other.isPresent() && other.get() == value
+				|| other2.isPresent() && other2.get() == value;
 	}
 
 	public void add (final int value) {
-		other = Optional.of(value);
+		if (other.isPresent()) {
+			other2 = Optional.of(value);
+		} else {
+			other = Optional.of(value);
+		}
 	}
 }
