@@ -21,10 +21,14 @@ public class TreeShould {
 
 	@Test
 	public void not_contain_a_previously_added_element () {
-		assertThat(sut.contains(randomNumberExcept1()), is(false));
+		assertThat(sut.contains(randomNumberExcept(1)), is(false));
 	}
 
-	private int randomNumberExcept1 () {
-		return (int)(Math.random()*100)+2;
+	private int randomNumberExcept (final int forbiddenValue) {
+		int candidate;
+		do {
+			candidate = (int) (Math.random() * 100);
+		} while (candidate == forbiddenValue);
+		return candidate;
 	}
 }
