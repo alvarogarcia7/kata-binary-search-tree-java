@@ -15,4 +15,12 @@ public class TreeShould {
 
 		assertThat(sut.contains(1), is(true));
 	}
+
+	@Test
+	public void not_contain_a_previously_added_element () {
+
+		sut = Tree.from(1);
+
+		assertThat(sut.contains(2), is(false));
+	}
 }
