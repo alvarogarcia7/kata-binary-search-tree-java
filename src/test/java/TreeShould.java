@@ -19,6 +19,13 @@ public class TreeShould {
 		assertThat(sut.contains(1), is(true));
 	}
 
+
+	@Test
+	public void store_another_element () {
+		sut = Tree.from(2);
+		assertThat(sut.contains(2), is(true));
+	}
+
 	@Test
 	public void not_contain_a_previously_added_element () {
 		assertThat(sut.contains(randomNumberExcept(1)), is(false));
