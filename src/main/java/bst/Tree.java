@@ -1,12 +1,19 @@
 package bst;
 
 public class Tree {
+	private final int value;
+
+	private Tree (final int value) {
+
+		this.value = value;
+	}
+
 	public static Tree from (final int value) {
-		return new Tree();
+		return new Tree(value);
 	}
 
 	public boolean contains (final int value) {
-		if(1 == value){
+		if(this.value == value){
 			return true;
 		}
 		return false;
