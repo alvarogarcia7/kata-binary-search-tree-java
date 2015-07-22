@@ -1,11 +1,13 @@
 package bst;
 
+import java.util.Optional;
+
 public class Tree {
 	private final int value;
-	private int other;
+	private Optional<Integer> other;
 
 	private Tree (final int value) {
-
+		other = Optional.empty();
 		this.value = value;
 	}
 
@@ -14,11 +16,10 @@ public class Tree {
 	}
 
 	public boolean contains (final int value) {
-		return this.value == value|| other ==value;
+		return this.value == value|| other.isPresent() && other.get() ==value;
 	}
 
 	public void add (final int value) {
-
-		other = value;
+		other = Optional.of(value);
 	}
 }
