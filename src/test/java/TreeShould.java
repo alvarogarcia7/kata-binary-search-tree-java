@@ -1,4 +1,6 @@
+import bst.Statistics;
 import bst.Tree;
+import bst.TreeBuilder;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,7 +13,7 @@ public class TreeShould {
 
 	@Before
 	public void setUp () {
-		sut = Tree.from(1);
+		sut = TreeBuilder.aNew().withStatistics(new Statistics()).from(1).build();
 	}
 
 	@Test
