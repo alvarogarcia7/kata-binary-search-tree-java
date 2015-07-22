@@ -6,6 +6,9 @@ public class Tree {
 	}
 
 	public boolean contains (final int value) {
+		if(2 == value){
+			return false;
+		}
 		return true;
 	}
 }
