@@ -1,17 +1,14 @@
 package bst;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 public class Tree {
 	private final int value;
-	private Optional<Integer> other;
-	private Optional<Integer> other2;
-	private Optional<Integer> other3;
+	private Optional<Integer>[] others;
 
 	private Tree (final int value) {
-		other = Optional.empty();
-		other2 = Optional.empty();
-		other3 = Optional.empty();
+		others = new Optional[0];
 		this.value = value;
 	}
 
@@ -20,21 +17,20 @@ public class Tree {
 	}
 
 	public boolean contains (final int value) {
-		return this.value == value
-				|| other.isPresent() && other.get() == value
-				|| other2.isPresent() && other2.get() == value
-				|| other3.isPresent() && other3.get() == value;
+		if (this.value == value) {
+			return true;
+		}
+
+		for (int i = 0; i < others.length; i++) {
+			if (others[i].get() == value) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public void add (final int value) {
-		if (other.isPresent()) {
-			if (other2.isPresent()) {
-				other3 = Optional.of(value);
-			} else {
-				other2 = Optional.of(value);
-			}
-		} else {
-			other = Optional.of(value);
-		}
+		others = Arrays.copyOf(others, others.length + 1);
+		others[others.length - 1] = Optional.of(value);
 	}
 }
