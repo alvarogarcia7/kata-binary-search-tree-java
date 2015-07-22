@@ -2,6 +2,7 @@ package bst;
 
 public class Tree {
 	private final int value;
+	private int other;
 
 	private Tree (final int value) {
 
@@ -13,10 +14,11 @@ public class Tree {
 	}
 
 	public boolean contains (final int value) {
-		return this.value == value;
+		return this.value == value|| other ==value;
 	}
 
 	public void add (final int value) {
-		
+
+		other = value;
 	}
 }
