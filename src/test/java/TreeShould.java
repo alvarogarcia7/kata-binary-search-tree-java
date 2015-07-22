@@ -23,4 +23,11 @@ public class TreeShould {
 	public void not_contain_a_previously_added_element () {
 		assertThat(sut.contains(2), is(false));
 	}
+
+	@Test
+	public void add_another_element_to_an_existing_one () {
+		sut.add(2);
+
+		assertThat(sut.contains(2), is(true));
+	}
 }

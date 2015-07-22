@@ -15,4 +15,8 @@ public class Tree {
 	public boolean contains (final int value) {
 		return this.value == value;
 	}
+
+	public void add (final int value) {
+		
+	}
 }
