@@ -6,9 +6,9 @@ public class Tree {
 	}
 
 	public boolean contains (final int value) {
-		if(3 == value){
-			return false;
+		if(1 == value){
+			return true;
 		}
-		return true;
+		return false;
 	}
 }
