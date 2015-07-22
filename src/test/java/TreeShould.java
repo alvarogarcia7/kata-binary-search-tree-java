@@ -19,17 +19,8 @@ public class TreeShould {
 		assertThat(sut.contains(1), is(true));
 	}
 
-
 	@Test
 	public void not_contain_a_previously_added_element () {
-		assertThat(sut.contains(randomNumberExcept(1)), is(false));
-	}
-
-	private int randomNumberExcept (final int forbiddenValue) {
-		int candidate;
-		do {
-			candidate = (int) (Math.random() * 100);
-		} while (candidate == forbiddenValue);
-		return candidate;
+		assertThat(sut.contains(2), is(false));
 	}
 }
