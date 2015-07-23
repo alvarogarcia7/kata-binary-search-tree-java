@@ -31,8 +31,12 @@ public class Tree {
 					break;
 				}
 			}
+			
+			bigONotation.clear();
 
-			bigONotation.set(i);
+			for (int j = 0; j < i; j++) {
+				bigONotation.operation();
+			}
 		}
 
 		return contained;

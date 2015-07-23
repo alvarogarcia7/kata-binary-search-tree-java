@@ -26,7 +26,8 @@ public class BigONotation {
 		}
 	};
 
-	public void set (final int comparisons) {
-		this.operations = comparisons;
+	public void clear () {
+		this.operations = 0;
 	}
+
 }
