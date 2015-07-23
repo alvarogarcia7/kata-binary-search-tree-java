@@ -55,6 +55,16 @@ public class Tree {
 	}
 
 	public void add (final int value) {
+		calculateDistribution(value);
+		addElement(value);
+		sortElements();
+	}
+
+	public void setStatistics (final Statistics statistics) {
+		this.statistics = statistics;
+	}
+
+	private void calculateDistribution (final int value) {
 		if(values.length > 0) {
 			final Integer max = values[values.length - 1].get();
 			final Integer min = values[0].get();
@@ -65,18 +75,19 @@ public class Tree {
 				isAlwaysDecreasing = false;
 			}
 		}
+	}
+
+	private void addElement (final int value) {
 		values = Arrays.copyOf(values, values.length + 1);
 		values[values.length - 1] = Optional.of(value);
+	}
+
+	private void sortElements () {
 		Arrays.sort(values, new Comparator<Optional<Integer>>() {
 			@Override
 			public int compare (final Optional<Integer> o1, final Optional<Integer> o2) {
 				return Integer.compare(o1.get(), o2.get());
 			}
 		});
-
-	}
-
-	public void setStatistics (final Statistics statistics) {
-		this.statistics = statistics;
 	}
 }
