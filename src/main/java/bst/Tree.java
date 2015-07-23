@@ -104,19 +104,19 @@ public class Tree {
 			}
 		}
 
+		int previousDepth = depthAt(newPosition, -1);
+		int nextDepth = depthAt(newPosition, 1);
+		depths[newPosition] = Math.max(previousDepth, nextDepth) + 1;
+	}
+
+	private int depthAt (final int newPosition, final int delta) {
 		int depth;
 		try {
-			depth = depths[newPosition - 1];
+			depth = depths[newPosition + delta];
 		} catch (ArrayIndexOutOfBoundsException e) {
 			depth =-1;
 		}
-		int depth2;
-		try {
-			depth2 = depths[value + 1];
-		} catch (ArrayIndexOutOfBoundsException e) {
-			depth2 =-1;
-		}
-		depths[newPosition] = Math.max(depth, depth2) + 1;
+		return depth;
 	}
 
 	public void setStatistics (final Statistics statistics) {
