@@ -81,13 +81,21 @@ public class Tree {
 		depths = Arrays.copyOf(depths, depths.length + 1);
 		depths[depths.length - 1] = -1;
 
+		sortValues();
+
+		updateDepths(value);
+	}
+
+	private void sortValues () {
 		Arrays.sort(values, new Comparator<Optional<Integer>>() {
 			@Override
 			public int compare (final Optional<Integer> o1, final Optional<Integer> o2) {
 				return Integer.compare(o1.get(), o2.get());
 			}
 		});
+	}
 
+	private void updateDepths (final int value) {
 		int newPosition = 0;
 
 		for (int i = 0; i < depths.length; i++) {
