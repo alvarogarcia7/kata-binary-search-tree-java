@@ -109,6 +109,10 @@ public class Tree {
 		depths[newPosition] = Math.max(previousDepth, nextDepth) + 1;
 	}
 
+	public void setStatistics (final Statistics statistics) {
+		this.statistics = statistics;
+	}
+
 	private int depthAt (final int newPosition, final int delta) {
 		int depth;
 		try {
@@ -117,10 +121,6 @@ public class Tree {
 			depth =-1;
 		}
 		return depth;
-	}
-
-	public void setStatistics (final Statistics statistics) {
-		this.statistics = statistics;
 	}
 
 	private void calculateDistribution (final int value) {
