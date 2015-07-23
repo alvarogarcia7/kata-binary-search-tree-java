@@ -1,14 +1,14 @@
 package bst;
 
 public class BigONotation {
-	private int comparisons = 0;
+	private int operations = 0;
 	public boolean isLog2 (final int n) {
 		final int upperBound = log2Ceiled(n) + 1;
-		return comparisons <= upperBound;
+		return operations <= upperBound;
 	}
 
-	public void comparison () {
-		this.comparisons++;
+	public void operation () {
+		this.operations++;
 	}
 
 	private int log2Ceiled (final int n) {
@@ -18,7 +18,7 @@ public class BigONotation {
 
 	public static final BigONotation NONE = new BigONotation(){
 		@Override
-		public void comparison () {}
+		public void operation () {}
 
 		@Override
 		public boolean isLog2 (final int n) {
@@ -27,6 +27,6 @@ public class BigONotation {
 	};
 
 	public void set (final int comparisons) {
-		this.comparisons = comparisons;
+		this.operations = comparisons;
 	}
 }

@@ -40,7 +40,7 @@ public class Tree {
 
 	private boolean linearSearch (final int value) {
 		for (int i = 0; i < values.length; i++) {
-			this.bigONotation.comparison();
+			this.bigONotation.operation();
 			if (values[i].get() == value) {
 				return true;
 			}
@@ -50,12 +50,12 @@ public class Tree {
 
 	private boolean binarySearch (final int value, final int min, final int max) {
 		if(min==max){
-			bigONotation.comparison();
+			bigONotation.operation();
 			return values[max].get() == value;
 		} else if(max-min==1){
 			return binarySearch(value, min, min) || binarySearch(value, max, max);
 		} else {
-			bigONotation.comparison();
+			bigONotation.operation();
 			final int middle = (max - min + 1) / 2 + min;
 			if(value < values[middle].get()) {
 				return binarySearch(value, min, middle);

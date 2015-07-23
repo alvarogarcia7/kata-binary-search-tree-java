@@ -126,7 +126,7 @@ public class TreeShould {
 		sut = TreeBuilder.aNew().withStatistics(bigONotation).from(1).build();
 
 		sut.contains(1);
-		verify(bigONotation).comparison();
+		verify(bigONotation).operation();
 	}
 
 
