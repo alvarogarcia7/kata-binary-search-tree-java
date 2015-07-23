@@ -2,7 +2,7 @@ package bst;
 
 public class Statistics {
 	private int comparisons = 0;
-	public boolean isLog2N (final int n) {
+	public boolean isLog2 (final int n) {
 		final int upperBound = log2Ceiled(n) + 1;
 		return comparisons <= upperBound;
 	}
@@ -21,7 +21,7 @@ public class Statistics {
 		public void comparison () {}
 
 		@Override
-		public boolean isLog2N (final int n) {
+		public boolean isLog2 (final int n) {
 			throw new UnsupportedOperationException();
 		}
 	};

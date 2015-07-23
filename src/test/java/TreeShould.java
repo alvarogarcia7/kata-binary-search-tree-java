@@ -69,7 +69,7 @@ public class TreeShould {
 
 		sut.contains(5);
 
-		assertThat(statistics.isLog2N(7), is(true));
+		assertThat(statistics.isLog2(7), is(true));
 	}
 
 	@Test
@@ -83,7 +83,7 @@ public class TreeShould {
 
 		sut.contains(7);
 
-		assertThat(statistics.isLog2N(7), is(false));
+		assertThat(statistics.isLog2(7), is(false));
 	}
 
 	@Test
@@ -97,7 +97,7 @@ public class TreeShould {
 
 		sut.contains(-7);
 
-		assertThat(statistics.isLog2N(7), is(false));
+		assertThat(statistics.isLog2(7), is(false));
 	}
 
 	@Test
@@ -116,7 +116,7 @@ public class TreeShould {
 
 		sut.contains(7);
 
-		assertThat(statistics.isLog2N(8), is(false));
+		assertThat(statistics.isLog2(8), is(false));
 	}
 
 	@Test
