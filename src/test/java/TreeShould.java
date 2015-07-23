@@ -60,7 +60,6 @@ public class TreeShould {
 	@Test
 	public void find_an_element_in_log_n_time () {
 
-		sut = TreeBuilder.aNew().withStatistics(statistics).from(1).build();
 		sut.add(4);
 		sut.add(3);
 		sut.add(5);
@@ -75,7 +74,6 @@ public class TreeShould {
 
 	@Test
 	public void find_an_element_in_n_time () {
-		sut = TreeBuilder.aNew().withStatistics(statistics).from(1).build();
 		sut.add(2);
 		sut.add(3);
 		sut.add(4);
