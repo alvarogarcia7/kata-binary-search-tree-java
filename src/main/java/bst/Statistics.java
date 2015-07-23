@@ -1,7 +1,15 @@
 package bst;
 
 public class Statistics {
-	public static final Statistics NONE = new Statistics();
+	public static final Statistics NONE = new Statistics(){
+		@Override
+		public void comparison () {}
+
+		@Override
+		public boolean isLog2N (final int n) {
+			throw new UnsupportedOperationException();
+		}
+	};
 	private int comparisons = 0;
 
 	public boolean isLog2N (final int n) {
