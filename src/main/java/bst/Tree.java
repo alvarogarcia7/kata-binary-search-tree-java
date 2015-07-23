@@ -83,7 +83,7 @@ public class Tree {
 
 		sortValues();
 
-		updateDepths(value);
+		updateDepths();
 	}
 
 	private void sortValues () {
@@ -95,7 +95,7 @@ public class Tree {
 		});
 	}
 
-	private void updateDepths (final int value) {
+	private void updateDepths () {
 		int newPosition = 0;
 
 		for (int i = 0; i < depths.length; i++) {
