@@ -7,7 +7,7 @@ import java.util.Optional;
 public class Tree {
 	private int[] depths;
 	private Optional<Integer>[] values;
-	private Statistics statistics = Statistics.NONE;
+	private BigONotation bigONotation = BigONotation.NONE;
 
 	private Tree (final int value) {
 		values = new Optional[0];
@@ -32,7 +32,7 @@ public class Tree {
 				}
 			}
 
-			statistics.set(i);
+			bigONotation.set(i);
 		}
 
 		return contained;
@@ -40,7 +40,7 @@ public class Tree {
 
 	private boolean linearSearch (final int value) {
 		for (int i = 0; i < values.length; i++) {
-			this.statistics.comparison();
+			this.bigONotation.comparison();
 			if (values[i].get() == value) {
 				return true;
 			}
@@ -50,12 +50,12 @@ public class Tree {
 
 	private boolean binarySearch (final int value, final int min, final int max) {
 		if(min==max){
-			statistics.comparison();
+			bigONotation.comparison();
 			return values[max].get() == value;
 		} else if(max-min==1){
 			return binarySearch(value, min, min) || binarySearch(value, max, max);
 		} else {
-			statistics.comparison();
+			bigONotation.comparison();
 			final int middle = (max - min + 1) / 2 + min;
 			if(value < values[middle].get()) {
 				return binarySearch(value, min, middle);
@@ -100,8 +100,8 @@ public class Tree {
 		depths[newPosition] = Math.max(previousDepth, nextDepth) + 1;
 	}
 
-	public void setStatistics (final Statistics statistics) {
-		this.statistics = statistics;
+	public void setBigONotation (final BigONotation bigONotation) {
+		this.bigONotation = bigONotation;
 	}
 
 	private int depthAt (final int newPosition, final int delta) {

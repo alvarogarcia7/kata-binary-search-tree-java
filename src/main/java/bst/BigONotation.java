@@ -1,6 +1,6 @@
 package bst;
 
-public class Statistics {
+public class BigONotation {
 	private int comparisons = 0;
 	public boolean isLog2 (final int n) {
 		final int upperBound = log2Ceiled(n) + 1;
@@ -16,7 +16,7 @@ public class Statistics {
 		return (int) Math.ceil(log);
 	}
 
-	public static final Statistics NONE = new Statistics(){
+	public static final BigONotation NONE = new BigONotation(){
 		@Override
 		public void comparison () {}
 

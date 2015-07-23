@@ -1,4 +1,4 @@
-import bst.Statistics;
+import bst.BigONotation;
 import bst.Tree;
 import bst.TreeBuilder;
 import org.junit.Before;
@@ -12,12 +12,12 @@ import static org.mockito.Mockito.verify;
 public class TreeShould {
 
 	private Tree sut;
-	private Statistics statistics;
+	private BigONotation bigONotation;
 
 	@Before
 	public void setUp () {
-		statistics = new Statistics();
-		sut = TreeBuilder.aNew().withStatistics(statistics).from(1).build();
+		bigONotation = new BigONotation();
+		sut = TreeBuilder.aNew().withStatistics(bigONotation).from(1).build();
 	}
 
 	@Test
@@ -69,7 +69,7 @@ public class TreeShould {
 
 		sut.contains(5);
 
-		assertThat(statistics.isLog2(7), is(true));
+		assertThat(bigONotation.isLog2(7), is(true));
 	}
 
 	@Test
@@ -83,7 +83,7 @@ public class TreeShould {
 
 		sut.contains(7);
 
-		assertThat(statistics.isLog2(7), is(false));
+		assertThat(bigONotation.isLog2(7), is(false));
 	}
 
 	@Test
@@ -97,13 +97,13 @@ public class TreeShould {
 
 		sut.contains(-7);
 
-		assertThat(statistics.isLog2(7), is(false));
+		assertThat(bigONotation.isLog2(7), is(false));
 	}
 
 	@Test
 	public void take_On_to_find_the_bigger_in_an_almost_ordered_sequence () {
 
-		sut = TreeBuilder.aNew().withStatistics(statistics).from(0).build();
+		sut = TreeBuilder.aNew().withStatistics(bigONotation).from(0).build();
 
 		sut.add(2);
 		sut.add(1);
@@ -116,17 +116,17 @@ public class TreeShould {
 
 		sut.contains(7);
 
-		assertThat(statistics.isLog2(8), is(false));
+		assertThat(bigONotation.isLog2(8), is(false));
 	}
 
 	@Test
 	public void count_the_number_of_comparisons () {
 
-		statistics = mock(Statistics.class);
-		sut = TreeBuilder.aNew().withStatistics(statistics).from(1).build();
+		bigONotation = mock(BigONotation.class);
+		sut = TreeBuilder.aNew().withStatistics(bigONotation).from(1).build();
 
 		sut.contains(1);
-		verify(statistics).comparison();
+		verify(bigONotation).comparison();
 	}
 
 
