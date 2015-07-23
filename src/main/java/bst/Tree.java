@@ -52,19 +52,19 @@ public class Tree {
 		return false;
 	}
 
-	private boolean contains (final int value, final int min, final int max) {
+	private boolean binarySearch (final int value, final int min, final int max) {
 		if(min==max){
 			statistics.comparison();
 			return values[max].get() == value;
 		} else if(max-min==1){
-			return contains(value, min, min) || contains(value, max, max);
+			return binarySearch(value, min, min) || binarySearch(value, max, max);
 		} else {
 			statistics.comparison();
 			final int middle = (max - min + 1) / 2 + min;
 			if(value < values[middle].get()) {
-				return contains(value, min, middle);
+				return binarySearch(value, min, middle);
 			} else {
-				return contains(value, middle, max);
+				return binarySearch(value, middle, max);
 			}
 		}
 	}
