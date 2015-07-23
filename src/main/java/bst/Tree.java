@@ -6,14 +6,10 @@ import java.util.Optional;
 
 public class Tree {
 	private int[] depths;
-	private boolean isAlwaysIncreasing;
 	private Optional<Integer>[] values;
 	private Statistics statistics = Statistics.NONE;
-	private boolean isAlwaysDecreasing;
 
 	private Tree (final int value) {
-		isAlwaysIncreasing = true;
-		isAlwaysDecreasing = true;
 		values = new Optional[0];
 		depths = new int[0];
 		add(value);
@@ -70,7 +66,6 @@ public class Tree {
 	}
 
 	public void add (final int value) {
-		calculateDistribution(value);
 		addElement(value);
 	}
 
@@ -121,19 +116,6 @@ public class Tree {
 			depth =-1;
 		}
 		return depth;
-	}
-
-	private void calculateDistribution (final int value) {
-		if(values.length > 0) {
-			final Integer max = values[values.length - 1].get();
-			final Integer min = values[0].get();
-			if (!(value > max)) {
-				isAlwaysIncreasing = false;
-			}
-			if(!(value < min)){
-				isAlwaysDecreasing = false;
-			}
-		}
 	}
 
 }
