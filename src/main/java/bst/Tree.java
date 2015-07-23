@@ -8,9 +8,11 @@ public class Tree {
 	private boolean isAlwaysIncreasing;
 	private Optional<Integer>[] values;
 	private Statistics statistics = Statistics.NONE;
+	private boolean isAlwaysDecreasing;
 
 	private Tree (final int value) {
 		isAlwaysIncreasing = true;
+		isAlwaysDecreasing = true;
 		values = new Optional[0];
 		add(value);
 	}
@@ -20,7 +22,7 @@ public class Tree {
 	}
 
 	public boolean contains (final int value) {
-		if(isAlwaysIncreasing) {
+		if(isAlwaysIncreasing || isAlwaysDecreasing) {
 			return linearSearch(value);
 		}
 		return contains(value, 0, values.length-1);
@@ -55,8 +57,12 @@ public class Tree {
 	public void add (final int value) {
 		if(values.length > 0) {
 			final Integer max = values[values.length - 1].get();
+			final Integer min = values[0].get();
 			if (!(value > max)) {
 				isAlwaysIncreasing = false;
+			}
+			if(!(value < min)){
+				isAlwaysDecreasing = false;
 			}
 		}
 		values = Arrays.copyOf(values, values.length + 1);
