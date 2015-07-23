@@ -10,10 +10,12 @@ import static org.hamcrest.Matchers.is;
 public class TreeShould {
 
 	private Tree sut;
+	private Statistics statistics;
 
 	@Before
 	public void setUp () {
-		sut = TreeBuilder.aNew().withStatistics(new Statistics()).from(1).build();
+		statistics = new Statistics();
+		sut = TreeBuilder.aNew().withStatistics(statistics).from(1).build();
 	}
 
 	@Test
@@ -51,6 +53,20 @@ public class TreeShould {
 	@Test
 	public void not_store_the_default_value_for_int_without_adding_it_first () {
 		assertThat(sut.contains(0), is(false));
+	}
+
+	@Test
+	public void find_an_element_in_log_n_time () {
+
+		sut.add(4);
+		sut.add(3);
+		sut.add(5);
+		sut.add(2);
+		sut.add(6);
+		sut.add(1);
+		sut.add(7);
+
+		assertThat(statistics.isLog2N(), is(true));
 	}
 
 
