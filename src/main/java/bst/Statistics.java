@@ -3,7 +3,7 @@ package bst;
 public class Statistics {
 	private int comparisons = 0;
 	public boolean isLog2N (final int n) {
-		return comparisons < log2Ceiled(n);
+		return comparisons <= log2Ceiled(n) + 1;
 	}
 
 	public void comparison () {

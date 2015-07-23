@@ -45,6 +45,7 @@ public class Tree {
 		} else if(max-min==1){
 			return contains(value, min, min) || contains(value, max, max);
 		} else {
+			statistics.comparison();
 			final int middle = (max - min + 1) / 2 + min;
 			if(value < values[middle].get()) {
 				return contains(value, min, middle);
