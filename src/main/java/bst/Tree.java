@@ -71,14 +71,15 @@ public class Tree {
 
 	public void add (final int value) {
 		calculateDistribution(value);
+		addElement(value);
+	}
 
-
+	private void addElement (final int value) {
 		values = Arrays.copyOf(values, values.length + 1);
 		values[values.length - 1] = Optional.of(value);
 
 		depths = Arrays.copyOf(depths, depths.length + 1);
 		depths[depths.length - 1] = -1;
-
 
 		Arrays.sort(values, new Comparator<Optional<Integer>>() {
 			@Override
@@ -107,7 +108,6 @@ public class Tree {
 		} catch (ArrayIndexOutOfBoundsException e) {
 			depth2 =-1;
 		}
-
 		depths[newPosition] = Math.max(depth, depth2) + 1;
 	}
 
