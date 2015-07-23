@@ -87,6 +87,20 @@ public class TreeShould {
 	}
 
 	@Test
+	public void find_an_element_in_n_time_in_a_decreasingly_ordered_sequence () {
+		sut.add(0);
+		sut.add(-1);
+		sut.add(-2);
+		sut.add(-3);
+		sut.add(-4);
+		sut.add(-5);
+
+		sut.contains(-7);
+
+		assertThat(statistics.isLog2N(7), is(false));
+	}
+
+	@Test
 	public void count_the_number_of_comparisons () {
 
 		statistics = mock(Statistics.class);
