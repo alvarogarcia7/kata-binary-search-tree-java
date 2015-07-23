@@ -26,6 +26,8 @@ public class TreeBuilder implements Builder<Tree> {
 
 	@Override
 	public Tree build () {
-		return Tree.from(value);
+		final Tree tree = Tree.from(value);
+		tree.setStatistics(statistics);
+		return tree;
 	}
 }
