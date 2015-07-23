@@ -24,4 +24,26 @@ public class Statistics {
 			throw new UnsupportedOperationException();
 		}
 	};
+
+	public Statistics min (final Statistics other) {
+		if(other.comparisons < this.comparisons){
+			return other;
+		} else {
+			return this;
+		}
+	}
+
+	public void clear () {
+		this.comparisons = 0;
+	}
+
+	public Statistics copy () {
+		final Statistics statistics = new Statistics();
+		statistics.comparisons = this.comparisons;
+		return statistics;
+	}
+
+	public void copyFrom (final Statistics other) {
+		this.comparisons = other.comparisons;
+	}
 }

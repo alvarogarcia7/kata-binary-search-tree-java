@@ -22,10 +22,21 @@ public class Tree {
 	}
 
 	public boolean contains (final int value) {
-		if(isAlwaysIncreasing || isAlwaysDecreasing) {
-			return linearSearch(value);
+
+
+		final boolean contained = linearSearch(value);
+		final Statistics linearStatistics = statistics.copy();
+		if(isAlwaysDecreasing || isAlwaysIncreasing){
+
+		} else {
+			statistics.clear();
+
+			contains(value, 0, values.length - 1);
+
+			this.statistics.copyFrom(this.statistics.min(linearStatistics));
+
 		}
-		return contains(value, 0, values.length-1);
+		return contained;
 	}
 
 	private boolean linearSearch (final int value) {
