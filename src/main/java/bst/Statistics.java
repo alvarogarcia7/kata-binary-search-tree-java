@@ -3,7 +3,8 @@ package bst;
 public class Statistics {
 	private int comparisons = 0;
 	public boolean isLog2N (final int n) {
-		return comparisons <= log2Ceiled(n) + 1;
+		final int upperBound = log2Ceiled(n) + 1;
+		return comparisons <= upperBound;
 	}
 
 	public void comparison () {
@@ -24,4 +25,8 @@ public class Statistics {
 			throw new UnsupportedOperationException();
 		}
 	};
+
+	public void set (final int comparisons) {
+		this.comparisons = comparisons;
+	}
 }

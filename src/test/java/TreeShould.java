@@ -67,7 +67,7 @@ public class TreeShould {
 		sut.add(6);
 		sut.add(7);
 
-		sut.contains(7);
+		sut.contains(5);
 
 		assertThat(statistics.isLog2N(7), is(true));
 	}
