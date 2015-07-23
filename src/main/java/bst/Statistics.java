@@ -13,8 +13,7 @@ public class Statistics {
 	private int comparisons = 0;
 
 	public boolean isLog2N (final int n) {
-		final double log = log2(n);
-		final int upperLimit = (int) Math.ceil(log);
+		final int upperLimit = log2Ceiled(n);
 		return comparisons < upperLimit;
 	}
 
@@ -22,7 +21,8 @@ public class Statistics {
 		this.comparisons++;
 	}
 
-	private double log2 (final int n) {
-		return Math.log(n) / Math.log(2);
+	private int log2Ceiled (final int n) {
+		final double log = Math.log(n) / Math.log(2);
+		return (int) Math.ceil(log);
 	}
 }
