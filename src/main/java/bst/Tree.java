@@ -66,10 +66,6 @@ public class Tree {
 	}
 
 	public void add (final int value) {
-		addElement(value);
-	}
-
-	private void addElement (final int value) {
 		values = Arrays.copyOf(values, values.length + 1);
 		values[values.length - 1] = Optional.of(value);
 
