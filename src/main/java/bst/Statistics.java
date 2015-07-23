@@ -6,4 +6,8 @@ public class Statistics {
 	public boolean isLog2N () {
 		return true;
 	}
+
+	public void comparison () {
+
+	}
 }

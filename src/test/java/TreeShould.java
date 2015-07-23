@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class TreeShould {
 
@@ -67,6 +69,16 @@ public class TreeShould {
 		sut.add(7);
 
 		assertThat(statistics.isLog2N(), is(true));
+	}
+
+	@Test
+	public void count_the_number_of_comparisons () {
+
+		statistics = mock(Statistics.class);
+		sut = TreeBuilder.aNew().withStatistics(statistics).from(1).build();
+
+		sut.contains(1);
+		verify(statistics).comparison();
 	}
 
 
