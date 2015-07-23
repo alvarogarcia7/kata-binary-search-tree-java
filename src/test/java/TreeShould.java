@@ -68,7 +68,20 @@ public class TreeShould {
 		sut.add(1);
 		sut.add(7);
 
-		assertThat(statistics.isLog2N(), is(true));
+		assertThat(statistics.isLog2N(7), is(true));
+	}
+
+	@Test
+	public void find_an_element_in_n_time () {
+		sut.add(1);
+		sut.add(2);
+		sut.add(3);
+		sut.add(4);
+		sut.add(5);
+		sut.add(6);
+		sut.add(7);
+
+		assertThat(statistics.isLog2N(7), is(false));
 	}
 
 	@Test
