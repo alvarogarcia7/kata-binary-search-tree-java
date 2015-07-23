@@ -101,6 +101,25 @@ public class TreeShould {
 	}
 
 	@Test
+	public void take_On_to_find_the_bigger_in_an_almost_ordered_sequence () {
+
+		sut = TreeBuilder.aNew().withStatistics(statistics).from(0).build();
+
+		sut.add(2);
+		sut.add(1);
+		sut.add(3);
+		sut.add(4);
+		sut.add(5);
+		sut.add(6);
+		sut.add(7);
+
+
+		sut.contains(7);
+
+		assertThat(statistics.isLog2N(8), is(false));
+	}
+
+	@Test
 	public void count_the_number_of_comparisons () {
 
 		statistics = mock(Statistics.class);
